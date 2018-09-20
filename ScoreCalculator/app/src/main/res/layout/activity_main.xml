@@ -12,6 +12,8 @@
         android:layout_height="wrap_content"
         android:text="@string/label_color"
         android:layout_alignParentLeft="true"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
     />
     <TextView
         android:id="@+id/message_color_points"
@@ -19,6 +21,8 @@
         android:layout_height="wrap_content"
         android:text="@string/message_color_points"
         android:layout_alignParentRight="true"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
     />
 
     <LinearLayout
@@ -26,7 +30,9 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/message_color_points">
+        android:layout_below="@id/message_color_points"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding">
 
         <Button
             android:onClick="handle3Fix"
@@ -66,7 +72,9 @@
         android:layout_height="wrap_content"
         android:text="@string/label_distances"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/button_fixes">
+        android:layout_below="@id/button_fixes"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
         />
 
     <TableLayout
@@ -74,6 +82,8 @@
         android:layout_below="@id/message_distance"
         android:layout_width="fill_parent"
         android:gravity="center_horizontal"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
         android:id="@+id/table">
 
         <TableRow
@@ -157,15 +167,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:layout_width="0dp"
                 android:layout_weight="0.33"
                 android:layout_height="wrap_content"
                 android:text=""/>
             <TextView
+                android:layout_width="0dp"
                 android:layout_weight="0.33"
                 android:layout_height="wrap_content"
                 android:text=""/>
             <Button
-                 android:onClick="handleUpdatex"
+                android:onClick="handleUpdatex"
+                android:layout_width="0dp"
+                android:layout_marginRight="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.33"
                 android:text="@string/button_update"
@@ -174,10 +188,92 @@
         </TableRow>
     </TableLayout>
     <LinearLayout
+        android:id="@+id/wb_text"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/table">
+        android:layout_below="@id/table"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_white_black"
+            android:layout_alignParentLeft="true"
+            />
+        <TextView
+            android:id="@+id/message_wb_points"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/message_wb_points"
+            android:gravity="right"
+            />
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/wb_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
+        android:layout_below="@id/wb_text">
+        <Button
+            android:onClick="handlewbFailure"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_wb_failure"
+            />
+
+        <Button
+            android:onClick="handlewbSuccess"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_wb_success"
+            />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/message_wb_points"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/message_total_points"
+        android:textSize="25dp"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/wb_buttons"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
+        />
+    <TableLayout
+        android:layout_height="wrap_content"
+        android:layout_below="@id/message_wb_points"
+        android:layout_width="fill_parent"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
+        android:gravity="center_horizontal">
+        <TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.25"
+                android:layout_height="wrap_content"
+                android:text=""/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.25"
+                android:layout_height="wrap_content"
+                android:text=""/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.25"
+                android:layout_height="wrap_content"
+                android:text=""/>
+            <Button
+                android:layout_marginRight="10dp"
+                android:onClick="handleReset"
+                android:layout_height="wrap_content"
+                android:layout_width="0"
+                android:layout_weight="0.25"
+                android:text="@string/button_reset"
+                />
+        </TableRow>
+    </TableLayout>
 </RelativeLayout>
