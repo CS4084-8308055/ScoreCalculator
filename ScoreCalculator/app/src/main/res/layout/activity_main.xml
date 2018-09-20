@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_color"
+        android:layout_alignParentLeft="true"
+    />
+    <TextView
+        android:id="@+id/message_color_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/message_color_points"
+        android:layout_alignParentRight="true"
+    />
+
+    <LinearLayout
+        android:id="@+id/button_fixes"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/message_color_points">
+
+        <Button
+            android:onClick="handle3Fix"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_3fix"
+            />
+
+        <Button
+            android:onClick="handle2Fix"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_2fix"
+            />
+
+        <Button
+            android:onClick="handle1Fix"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_1fix"
+            />
+        <Button
+            android:onClick="handle0Fix"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_0fix"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/message_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_distances"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/button_fixes">
+        />
+
+    <TableLayout
+        android:layout_height="wrap_content"
+        android:layout_below="@id/message_distance"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal"
+        android:id="@+id/table">
+
+        <TableRow
+            android:background="@color/colorTableHeader">
+
+            <TextView
+                android:layout_weight="0.33"
+                android:text="" />
+
+            <TextView
+                android:layout_weight="0.33"
+                android:gravity="center_horizontal"
+                android:text="@string/col_distance" />
+
+            <TextView
+                android:layout_weight="0.33"
+                android:gravity="center_horizontal"
+                android:text="@string/col_points" />
+        </TableRow>
+
+        <TableRow
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_weight="0.33"
+                android:layout_height="wrap_content"
+                android:text="@string/label_near"/>
+            <TextView
+                android:layout_weight="0.33"
+                android:layout_height="wrap_content"
+                android:text=""/>
+            <TextView
+                android:layout_weight="0.33"
+                android:layout_height="wrap_content"
+                android:text=""/>
+        </TableRow>
+        <TableRow
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_weight="0.33"
+                android:layout_height="wrap_content"
+                android:text="@string/label_far"/>
+            <TextView
+                android:layout_weight="0.33"
+                android:layout_height="wrap_content"
+                android:text=""/>
+            <TextView
+                android:layout_weight="0.33"
+                android:layout_height="wrap_content"
+                android:text=""/>
+        </TableRow>
+        <TableRow
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_weight="0.33"
+                android:layout_height="wrap_content"
+                android:text="@string/label_home"/>
+            <TextView
+                android:layout_weight="0.33"
+                android:layout_height="wrap_content"
+                android:text=""/>
+            <TextView
+                android:layout_weight="0.33"
+                android:layout_height="wrap_content"
+                android:text=""/>
+        </TableRow>
+        <TableRow
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_weight="0.33"
+                android:layout_height="wrap_content"
+                android:text=""/>
+            <TextView
+                android:layout_weight="0.33"
+                android:layout_height="wrap_content"
+                android:text=""/>
+            <Button
+                 android:onClick="handleUpdatex"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.33"
+                android:text="@string/button_update"
+                />
+
+        </TableRow>
+    </TableLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/table">
+    </LinearLayout>
+</RelativeLayout>

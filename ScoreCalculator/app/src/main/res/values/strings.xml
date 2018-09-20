@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Score Calculator</string>
+    <string name="label_color">Color Identification</string>
+    <string name="message_color_points">0 color points</string>
+    <string name="message_color_points_format">%d color points</string>
+    <string name="button_3fix">3 fixes</string>
+    <string name="button_2fix">2 Fixes</string>
+    <string name="button_1fix">1 Fix</string>
+    <string name="button_0fix">0 Fixes</string>
+    <string name="label_distances">Distances from cones:</string>
+    <string name="col_distance">Distance (ft)</string>
+    <string name="col_points">Points</string>
+    <string name="label_near">Near Ball</string>
+    <string name="label_far">Far Ball</string>
+    <string name="label_home">Robot Home</string>
+    <string name="message_distance_points">0</string>
+    <string name="message_distance_points_format">%d</string>
+    <string name="button_update">Update</string>
+    <string name="label_white_black">White/Black (WB) Mission:</string>
+    <string name="message_wb_points">0 wb points</string>
+    <string name="message_wb_points_format">%d wb points</string>
+    <string name="button_wb_failure">WB Failure</string>
+    <string name="button_wb_success">WB Success</string>
+    <string name="message_total_points">0 points</string>
+    <string name="message_total_points_format">%d points</string>
+    <string name="button_reset">Reset</string>
+</resources>
