@@ -123,9 +123,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:inputType="number"/>
+                    android:inputType="numberDecimal"/>
             </android.support.design.widget.TextInputLayout>
             <TextView
+                android:id="@+id/message_near_points"
                 android:layout_weight="0.30"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -150,9 +151,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:inputType="number"/>
+                    android:inputType="numberDecimal"/>
             </android.support.design.widget.TextInputLayout>
             <TextView
+                android:id="@+id/message_far_points"
                 android:layout_weight="0.30"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -177,9 +179,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:inputType="number"/>
+                    android:inputType="numberDecimal"/>
             </android.support.design.widget.TextInputLayout>
             <TextView
+                android:id="@+id/message_home_points"
                 android:layout_weight="0.30"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -201,7 +204,7 @@
                 android:layout_height="wrap_content"
                 android:text=""/>
             <Button
-                android:onClick="handleUpdatex"
+                android:onClick="handleUpdate"
                 android:layout_width="0dp"
                 android:layout_marginRight="30dp"
                 android:layout_height="wrap_content"
@@ -226,7 +229,7 @@
             android:layout_alignParentLeft="true"
             />
         <TextView
-            android:id="@+id/message_wb_points"
+            android:id="@+id/message_wbpoints"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/message_wb_points"
@@ -257,7 +260,7 @@
             />
     </LinearLayout>
     <TextView
-        android:id="@+id/message_wb_points"
+        android:id="@+id/message_total_points"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/message_total_points"
@@ -269,9 +272,9 @@
         />
     <TableLayout
         android:layout_height="wrap_content"
-        android:layout_below="@id/message_wb_points"
         android:layout_width="fill_parent"
-        android:paddingTop="@dimen/padding"
+        android:layout_below="@id/wb_buttons"
+        android:paddingTop="35dp"
         android:paddingBottom="@dimen/padding"
         android:gravity="center_horizontal">
         <TableRow>
