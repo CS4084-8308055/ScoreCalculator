@@ -3,6 +3,7 @@ package com.example.david_w_beck.scorecalculator;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,6 +14,10 @@ public class MainActivity extends AppCompatActivity {
     private int mFarPoints = 0;
     private int mHomePoints = 0;
     private int mwbPoints = 0;
+
+    private double mNearDistance = 0.0;
+    private double mFarDistance = 0.0;
+    private double mHomeDistance = 0.0;
 
     private TextView mMessageColorPoints;
     private TextView mMessageNearPoints;
@@ -61,27 +66,26 @@ public class MainActivity extends AppCompatActivity {
         updateAndRecalculate();
     }
     public void handleUpdate(View v){
-        double mInput;
-        mInput = Double.parseDouble(mInputNearPoints.getEditText().getText().toString().trim());
-        if(mInput > 45){mNearPoints = 0;}
-        else if (mInput > 30){mNearPoints = 10;}
-        else if (mInput > 20){mNearPoints = 50;}
-        else if (mInput > 10){mNearPoints = 80;}
-        else if (mInput > 5){mNearPoints = 100;}
+        if (!inputNearDistance() | !inputFarDistance() | !inputHomeDistance()){
+            return;
+        }
+        if(mNearDistance > 45){mNearPoints = 0;}
+        else if (mNearDistance > 30){mNearPoints = 10;}
+        else if (mNearDistance > 20){mNearPoints = 50;}
+        else if (mNearDistance > 10){mNearPoints = 80;}
+        else if (mNearDistance > 5){mNearPoints = 100;}
         else {mNearPoints = 110;}
-        mInput = Double.parseDouble(mInputFarPoints.getEditText().getText().toString());
-        if(mInput > 45){mFarPoints = 0;}
-        else if (mInput > 30){mFarPoints = 20;}
-        else if (mInput > 20){mFarPoints = 100;}
-        else if (mInput > 10){mFarPoints = 160;}
-        else if (mInput > 5){mFarPoints = 200;}
+        if(mFarDistance > 45){mFarPoints = 0;}
+        else if (mFarDistance > 30){mFarPoints = 20;}
+        else if (mFarDistance > 20){mFarPoints = 100;}
+        else if (mFarDistance > 10){mFarPoints = 160;}
+        else if (mFarDistance > 5){mFarPoints = 200;}
         else {mFarPoints = 220;}
-        mInput = Double.parseDouble(mInputHomePoints.getEditText().getText().toString());
-        if(mInput > 45){mHomePoints = 0;}
-        else if (mInput > 30){mHomePoints = 10;}
-        else if (mInput > 20){mHomePoints = 50;}
-        else if (mInput > 10){mHomePoints = 80;}
-        else if (mInput > 5){mHomePoints = 100;}
+        if(mHomeDistance > 45){mHomePoints = 0;}
+        else if (mHomeDistance > 30){mHomePoints = 10;}
+        else if (mHomeDistance > 20){mHomePoints = 50;}
+        else if (mHomeDistance > 10){mHomePoints = 80;}
+        else if (mHomeDistance > 5){mHomePoints = 100;}
         else {mHomePoints = 110;}
         updateAndRecalculate();
     }
@@ -99,6 +103,9 @@ public class MainActivity extends AppCompatActivity {
         mFarPoints = 0;
         mHomePoints = 0;
         mwbPoints = 0;
+        mInputNearPoints.getEditText().setText("");
+        mInputFarPoints.getEditText().setText("");
+        mInputHomePoints.getEditText().setText("");
         updateAndRecalculate();
     }
 
@@ -109,8 +116,50 @@ public class MainActivity extends AppCompatActivity {
         mMessageNearPoints.setText(getString(R.string.message_distance_points_format, mNearPoints));
         mMessageFarPoints.setText(getString(R.string.message_distance_points_format, mFarPoints));
         mMessageHomePoints.setText(getString(R.string.message_distance_points_format, mHomePoints));
-        mMessagewbPoints.setText(getString(R.string.message_distance_points_format, mwbPoints));
-        mMessageTotalPoints.setText(getString(R.string.message_wb_points_format, mTotalPoints));
+        mMessagewbPoints.setText(getString(R.string.message_wb_points_format, mwbPoints));
+        mMessageTotalPoints.setText(getString(R.string.message_total_points_format, mTotalPoints));
     }
 
+    private boolean validate(String mString){
+        if (mString.isEmpty()){
+            return false;
+        }
+        return true;
+    }
+    private boolean inputNearDistance() {
+        String mInput;
+        mInput = mInputNearPoints.getEditText().getText().toString().trim();
+        if (!validate(mInput)) {
+            mInputNearPoints.setError("Enter a number");
+            return false;
+        }
+        mInputNearPoints.setError(null);
+        mInputNearPoints.setErrorEnabled(false);
+        mNearDistance = Double.parseDouble(mInput);
+        return true;
+    }
+    private boolean inputFarDistance() {
+        String mInput;
+        mInput = mInputFarPoints.getEditText().getText().toString();
+        if (!validate(mInput)) {
+            mInputFarPoints.setError("Enter a number");
+            return false;
+        }
+        mInputFarPoints.setError(null);
+        mInputFarPoints.setErrorEnabled(false);
+        mFarDistance = Double.parseDouble(mInput);
+        return true;
+    }
+    private boolean inputHomeDistance() {
+        String mInput;
+        mInput = mInputHomePoints.getEditText().getText().toString();
+        if (!validate(mInput)) {
+            mInputHomePoints.setError("Enter a number");
+            return false;
+        }
+        mInputHomePoints.setError(null);
+        mInputHomePoints.setErrorEnabled(false);
+        mHomeDistance = Double.parseDouble(mInput);
+        return true;
+    }
 }
